@@ -26,16 +26,11 @@ $stmt->close();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .light-theme {
       background-color: #f8f9fa;
       color: #212529;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .dark-theme {
-      background-color: #212529;
-      color: #f8f9fa;
-    }
+
     .profile-container {
         max-width: 800px;
         margin: auto;
@@ -74,7 +69,7 @@ $stmt->close();
     }
   </style>
 </head>
-<body class="light-theme" id="body">
+<body>
 
 <?php if (isset($_SESSION['message'])): ?>
   <div class="alert alert-info mt-3"><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></div>
@@ -82,10 +77,6 @@ $stmt->close();
 
 <?php include('navbar.php'); ?>
 
-
-<div class="container text-center py-3">
-  <button class="btn btn-secondary" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-</div>
 
 <div class="container my-5">
   <div class="profile-container">
@@ -99,13 +90,11 @@ $stmt->close();
       <p>Membership Tier: <strong><?php echo htmlspecialchars($membership_tier); ?></strong></p>
     </div>
 
-
     <div class="customer-service-section mt-4">
       <h3>Customer Service</h3>
       <p>If you have any questions or need assistance, feel free to contact our support team!</p>
       <p>Email: <a href="mailto:support@momoyo.com">support@momoyo.com</a></p>
     </div>
-
 
     <div class="feedback-section mt-4">
       <h3>Feedback</h3>
@@ -130,33 +119,6 @@ $stmt->close();
 
 <?php include('footer.php'); ?>
 
-<script>
-  
-  function toggleTheme() {
-    let body = document.getElementById('body');
-    let currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-    
-  
-    if (currentTheme === 'light') {
-      body.classList.remove('light-theme');
-      body.classList.add('dark-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      body.classList.remove('dark-theme');
-      body.classList.add('light-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  }
-
-  
-  window.onload = function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme && savedTheme === 'dark') {
-      document.body.classList.remove('light-theme');
-      document.body.classList.add('dark-theme');
-    }
-  };
-</script>
-
 </body>
 </html>
+
