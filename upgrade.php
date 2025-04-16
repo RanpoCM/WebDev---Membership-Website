@@ -50,10 +50,10 @@ unset($_SESSION['message']);
 
     <hr>
 
-    <h5>💳 Pay with GCash (Manual)</h5>
+    <h5> Pay with GCash (Manual)</h5>
     <p>Scan the QR code below and upload your payment receipt.</p>
     <div class="text-center mb-3">
-        <img src="images/gcash_qr.png" alt="GCash QR" width="200">
+        <img src="images/gcash_qr.png sample" alt="GCash QR" width="200">
     </div>
     <form action="gcash_upload.php" method="POST" enctype="multipart/form-data" class="mb-5">
         <div class="mb-3">
@@ -65,7 +65,7 @@ unset($_SESSION['message']);
 
     <hr>
 
-    <h5>🌐 Pay with PayPal</h5>
+    <h5> Pay with PayPal</h5>
     <div id="paypal-button-container"></div>
 </div>
 
